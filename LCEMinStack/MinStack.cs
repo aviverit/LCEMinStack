@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace LCEMinStack
 {
-    public class MinStack
+    public class MinStack //: IComparable<MinStack>
     {
-        //int min;
-        List<int> stack = new List<int>();
+        int min;
+        int minCheck = 0;
+        Stack<int> stack = new Stack<int>();
 
         /** initialize your data structure here. */
         public MinStack()
@@ -19,21 +20,22 @@ namespace LCEMinStack
 
         public void Push(int x)
         {
-            /*if (min == null || x < min || stack.Contains(x) != true)
+            if (minCheck == 0 || x < min || stack.Contains(x) != true)
             {
                 min = x;
-            }*/
-            stack.Add(x);
+                minCheck = 1;
+            }
+            stack.Push(x);
         }
 
         public void Pop()
         {
-            stack.Remove(stack.Count()-1);
+            stack.Pop();
         }
 
         public int Top()
         {
-            return stack.ElementAt(stack.Count()-1);
+            return stack.Peek();
         }
 
         public int GetMin()
