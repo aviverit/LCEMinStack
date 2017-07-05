@@ -10,6 +10,25 @@ namespace LCEMinStack
     {
         static void Main(string[] args)
         {
+            MinStack mS = new MinStack();
+
+            mS.Push(-2);
+            Console.WriteLine(mS.Top());
+
+            mS.Push(0);
+            Console.WriteLine(mS.Top());
+
+            mS.Push(-3);
+            Console.WriteLine(mS.Top());
+
+            Console.WriteLine(mS.GetMin());
+
+            mS.Pop();
+            Console.WriteLine(mS.Top());
+
+            Console.WriteLine(mS.GetMin());
+
+            Console.ReadLine();
         }
     }
 }
