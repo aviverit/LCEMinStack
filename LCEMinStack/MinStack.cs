@@ -9,6 +9,7 @@ namespace LCEMinStack
     public class MinStack
     {
         int min;
+        List<int> stack = new List<int>();
 
         /** initialize your data structure here. */
         public MinStack()
@@ -18,17 +19,21 @@ namespace LCEMinStack
 
         public void Push(int x)
         {
-
+            if (min == null || x < min || stack.Contains(x) != true)
+            {
+                min = x;
+            }
+            stack.Add(x);
         }
 
         public void Pop()
         {
-
+            stack.Remove(stack.Count());
         }
 
         public int Top()
         {
-
+            return stack.ElementAt(stack.Count()-1);
         }
 
         public int GetMin()
